@@ -29,18 +29,26 @@ spec:
           readinessProbe:
             exec:
               command: ["sh", "/opt/rabbit/health_check.sh"]
-            failureThreshold: 5
-            initialDelaySeconds: 30
-            timeoutSeconds: 1
-            periodSeconds: 12
+            failureThreshold: 2
+            initialDelaySeconds: 1
+            timeoutSeconds: 2
+            periodSeconds: 10
             successThreshold: 1
+          startupProbe:
+            exec:
+              command: ["sh", "/opt/rabbit/health_check.sh"]
+            failureThreshold: 60
+            initialDelaySeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
           livenessProbe:
             exec:
               command: ["sh", "/opt/rabbit/health_check.sh"]
-            failureThreshold: 5
-            initialDelaySeconds: 30
-            timeoutSeconds: 1
-            periodSeconds: 12
+            failureThreshold: 2
+            initialDelaySeconds: 1
+            timeoutSeconds: 2
+            periodSeconds: 10
             successThreshold: 1
           ports:
             - containerPort: 4369

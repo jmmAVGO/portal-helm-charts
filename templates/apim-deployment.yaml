@@ -38,18 +38,26 @@ spec:
             httpGet:
               path: /sys/probe/readinesscheck
               port: 8080
-            failureThreshold: 60
-            initialDelaySeconds: 60
-            timeoutSeconds: 1
-            periodSeconds: 12
+            failureThreshold: 2
+            initialDelaySeconds: 1
+            timeoutSeconds: 2
+            periodSeconds: 10
             successThreshold: 1
-          livenessProbe:
+          startupProbe:
             exec:
               command: [sh, /opt/docker/diagnostic/health_check.sh]
             failureThreshold: 60
-            initialDelaySeconds: 60
+            initialDelaySeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
             timeoutSeconds: 1
-            periodSeconds: 12
+          livenessProbe:
+            exec:
+              command: [sh, /opt/docker/diagnostic/health_check.sh]
+            failureThreshold: 2
+            initialDelaySeconds: 1
+            timeoutSeconds: 2
+            periodSeconds: 10
             successThreshold: 1
           ports:
             - containerPort: 8080
