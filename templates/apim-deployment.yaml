@@ -79,7 +79,7 @@ spec:
       dnsPolicy: "{{ .Values.apim.dnsPolicy }}"
       restartPolicy: Always
       terminationGracePeriodSeconds: 60
-      {{- if .Values.image.pullSecrets }}
+      {{- if .Values.restman.enabled }}
       volumes:
       - name: restmanbundle
         configMap:
