@@ -84,4 +84,4 @@ spec:
       - name: restmanbundle
         configMap:
            name: restmanbundle
-      {{-end }}
+      {{- end }}
