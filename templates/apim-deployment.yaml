@@ -51,7 +51,7 @@ spec:
             timeoutSeconds: 1
             periodSeconds: 10
             successThreshold: 1
-          {{- if .Values.apim.installRestman }}
+          {{- if eq .Values.apim.installRestman "true" }}
           volumeMounts:
           - name: restmanbundle
             mountPath: /opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/restman.xml.bundle
@@ -79,7 +79,7 @@ spec:
       dnsPolicy: "{{ .Values.apim.dnsPolicy }}"
       restartPolicy: Always
       terminationGracePeriodSeconds: 60
-      {{- if .Values.apim.installRestman }}
+      {{- if eq .Values.apim.installRestman "true" }}
       volumes:
       - name: restmanbundle
         configMap:
