@@ -38,14 +38,14 @@ spec:
             httpGet:
               path: /sys/probe/readinesscheck
               port: 8080
-            initialDelaySeconds: 90
+            initialDelaySeconds: 360
             timeoutSeconds: 1
             periodSeconds: 15
             successThreshold: 1
           livenessProbe:
             exec:
               command: [sh, /opt/docker/diagnostic/health_check.sh]
-            initialDelaySeconds: 300
+            initialDelaySeconds: 360
             timeoutSeconds: 1
             periodSeconds: 15
             successThreshold: 1
@@ -59,10 +59,10 @@ spec:
             - containerPort: 9448
           resources:
             requests:
-              cpu: 100m
+              cpu: 200m
               memory: 4096Mi
             limits:
-              cpu: 2000m
+              cpu: 4000m
               memory: 8192Mi
       {{- if .Values.image.pullSecrets }}
       imagePullSecrets:
