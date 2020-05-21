@@ -51,10 +51,10 @@ spec:
             - containerPort: 25672
           resources:
             requests:
-              cpu: 100m
+              cpu: 300m
               memory: 256Mi
             limits:
-              cpu: 1000m
+              cpu: 1500m
               memory: 1024Mi
       {{- if .Values.image.pullSecrets }}
       imagePullSecrets:
