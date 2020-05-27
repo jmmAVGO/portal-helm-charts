@@ -60,10 +60,10 @@ spec:
             - containerPort: 8080
           resources:
             requests:
-              cpu: 200m
+              cpu: 1000m
               memory: 1500Mi
             limits:
-              cpu: 2000m
+              cpu: 4000m
               memory: 3072Mi
       {{- if .Values.image.pullSecrets }}
       imagePullSecrets:
