@@ -12,6 +12,7 @@ data:
   DATALAKE_SSL_KEY_PASS: {{ required "Please fill in datalakeKeyPass in values.yaml" .Values.secrets.datalakeKeyPass | quote }}
   DSSG_SSL_KEY: {{ include "apim-dssg" . | b64enc | quote }}
   DSSG_SSL_KEY_PASS: {{ required "Please fill in dssgKeyPass in values.yaml" .Values.secrets.dssgKeyPass | quote }}
+  EXTRA_JAVA_ARGS: {{ "$EXTRA_JAVA_ARGS:-agentpath:/tmp/docker-debug/jprofiler/bin/linux-x64/libjprofilerti.so=port=8849" }}
   NSS_SDB_USE_CACHE: "no"
   OTK_DATABASE_NAME: {{ include "otk-db-name" . | quote }}
   OTK_PORT: "443"
