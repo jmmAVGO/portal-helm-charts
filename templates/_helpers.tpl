@@ -395,6 +395,17 @@ Generate Rabbit MQ endpoint based on configurations
 {{- end -}}
 
 {{/*
+Generate JProfiler endpoint based on configurations
+*/}}
+{{- define "jprofiler-host" -}}
+    {{- if .Values.user.legacyHostnames }}
+        {{- printf "jprofiler.%s" .Values.user.domain -}}
+    {{- else }}
+        {{- printf "%s-jprofiler.%s" .Values.user.kubeNamespace  .Values.user.domain -}}
+    {{- end }}
+{{- end -}}
+
+{{/*
 Generate PSSG enrolment endpoint based on configurations
 */}}
 {{- define "pssg-enroll-host" -}}
