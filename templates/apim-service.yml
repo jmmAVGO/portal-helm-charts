@@ -24,8 +24,8 @@ spec:
       targetPort: 8081
       protocol: TCP
       name: apim-analytics
-    - port: 8849
-      targetPort: 8849
+    - port: 8850
+      targetPort: 8850
       name: apim-jprofiler
     - port: 9449
       targetPort: 9449

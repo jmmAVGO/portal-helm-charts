@@ -53,4 +53,10 @@ spec:
       - backend:
           serviceName: apim
           servicePort: {{ printf "%s-broker" .Values.user.defaultTenantId | quote }}
+  - host: {{ include "broker-host" . | quote }}
+    http:
+      paths:
+      - backend:
+          serviceName: apim
+          servicePort: {{ printf "%s-jprofiler" .Values.user.defaultTenantId | quote }}
 {{- end }}
